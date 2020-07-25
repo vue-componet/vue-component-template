@@ -1,13 +1,28 @@
 <template>
-  <div class="test">hell1111o</div>
+  <div @click="test" class="test">click222</div>
 </template>
 
 <script>
 export default {
-
+  name: 'hello',
+  data() {
+    return {
+      list: [1,2,3]
+    }
+  },
+  methods: {
+    test() {
+      this.list.map(item => {
+        return item
+      })
+      console.log(this.list)
+    }
+  }
 }
 </script>
 
-<style>
-
+<style lang="stylus" scoped>
+.test
+  color blue
+  transform translate(50%,50%)
 </style>
