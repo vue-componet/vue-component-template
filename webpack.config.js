@@ -10,6 +10,8 @@ const portfinder = require('portfinder')
 const open = require('opn')
 const ip = require('ip').address()
 
+const componentConfig = require('./component.config')
+
 const resolve = function(dir) {
   return path.resolve(__dirname, dir)
 }
@@ -17,10 +19,10 @@ const resolve = function(dir) {
 const devWebPackConfig = {
   mode: process.env.NODE_ENV,
   devtool: process.env.NODE_ENV === 'development' ? 'source-map' : 'none',
-  entry: './src/index.js',
+  entry: process.env.LIB ? './src/index.js' : './examples/index.js',
   output: {
-    path: resolve('dist'),
-    filename: 'js/[name].[hash].js',
+    path: process.env.LIB ? resolve('lib') : resolve('dist'),
+    filename: process.env.LIB ? `${componentConfig.name}.min.js` : 'js/[name].[hash].js',
     libraryTarget: 'umd'
   },
   module: {

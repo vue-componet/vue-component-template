@@ -1,7 +1,5 @@
-import Vue from 'vue'
-import Hello from './hello'
-import './index.css'
-
-new Vue({
-	render: h => h(Hello)
-}).$mount('#app')
+import Button from './Button.vue'
+Button.intall = function (vue) {
+  vue.component(Button.name, Button)
+}
+export default Button

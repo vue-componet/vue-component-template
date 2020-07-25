@@ -6,7 +6,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=8080 webpack-dev-server --inline --config webpack.config.js",
-    "build": "cross-env NODE_ENV=production webpack --config webpack.config.js"
+    "examples": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:lib": "cross-env NODE_ENV=production LIB=true webpack --config webpack.config.js"
   },
   "author": "周东杰 <384168902@qq.com>",
   "license": "ISC",
