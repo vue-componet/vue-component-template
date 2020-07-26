@@ -1,14 +1,15 @@
 const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const VueLoderPlugin = require('vue-loader/lib/plugin')
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin') // 打包拷贝插件
+const HtmlWebpackPlugin = require('html-webpack-plugin') // html构建
+const { CleanWebpackPlugin } = require('clean-webpack-plugin') // 每次打包的时候清空打包目录
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin') // 终端输出插件
+const webpackBar = require('webpackbar') // webpack打包/启动devServer进度显示
 const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //css分离
-const webpackBar = require('webpackbar')
-const portfinder = require('portfinder')
-const open = require('opn')
-const ip = require('ip').address()
+const ip = require('ip').address() // 获取本机ip
+const portfinder = require('portfinder') // 获取可用端口
+const open = require('opn') // 打开浏览器
+const VueLoderPlugin = require('vue-loader/lib/plugin')
 
 const componentConfig = require('./component.config')
 
@@ -98,7 +99,7 @@ const devWebPackConfig = {
     new CleanWebpackPlugin(), // 自动清理打包目录下的文件
     new webpackBar(), // 打包/启动dev服务器进度
     // new webpack.HotModuleReplacementPlugin(), // 热模块替换开启
-    new VueLoderPlugin() // vueLoader
+    new VueLoderPlugin(), // vueLoader
   ],
   resolve: {
     alias: {
@@ -126,6 +127,13 @@ const devWebPackConfig = {
 }
 
 module.exports = new Promise((resolve, rejects) => {
+  if(process.env.LIB) {
+    devWebPackConfig.plugins.push(new CopyPlugin({
+      patterns: [
+        { from: 'src', to: 'src' }
+      ],
+    }))
+  }
   portfinder.basePort = process.env.PORT || 9000
   portfinder.getPort((err, port) => {
     if (err) {

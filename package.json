@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development PORT=8080 webpack-dev-server --inline --config webpack.config.js",
-    "examples": "cross-env NODE_ENV=production webpack --config webpack.config.js",
+    "build:examples": "cross-env NODE_ENV=production webpack --config webpack.config.js",
     "build:lib": "cross-env NODE_ENV=production LIB=true webpack --config webpack.config.js"
   },
   "author": "周东杰 <384168902@qq.com>",
@@ -17,6 +17,7 @@
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
