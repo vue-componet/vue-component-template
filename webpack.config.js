@@ -44,29 +44,9 @@ const devWebPackConfig = {
         }
       },
       {
-        test: /\.(sa|sc|le|c)ss$/,
+        test: /\.((sa|sc|le|c)ss|(styl|stylus))$/,
         use: [
-          'style-loader',
-          {
-            loader: MiniCssExtractPlugin.loader,
-            options: {
-              hmr: process.env.NODE_ENV === 'development'
-            }
-          },
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-              config: { path: resolve('postcss.config.js') }
-            },
-          }
-        ]
-      },
-      {
-        test: /\.(styl|stylus)$/,
-        use: [
-          'style-loader',
+          process.env.NODE_ENV === 'development' ? 'style-loader' : 
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
@@ -81,9 +61,11 @@ const devWebPackConfig = {
               config: { path: resolve('postcss.config.js') }
             },
           },
+          'less-loader',
+          'sass-loader',
           'stylus-loader'
         ]
-      },
+      }
     ]
   },
   plugins: [
