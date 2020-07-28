@@ -17,10 +17,12 @@ const resolve = function(dir) {
   return path.resolve(__dirname, dir)
 }
 
+const modeDev = process.env.NODE_ENV === 'development' // 是否是开发环境
+
 const devWebPackConfig = {
   mode: process.env.NODE_ENV,
-  devtool: process.env.NODE_ENV === 'development' ? 'source-map' : 'none',
-  entry: process.env.LIB ? './src/index.js' : './examples/index.js',
+  devtool: modeDev ? 'source-map' : 'none',
+  entry: process.env.LIB ? resolve('src/index.js') : resolve('examples/main.js'),
   output: {
     path: process.env.LIB ? resolve('lib') : resolve('dist'),
     filename: process.env.LIB ? `${componentConfig.name}.min.js` : 'js/[name].[hash].js',
@@ -46,11 +48,11 @@ const devWebPackConfig = {
       {
         test: /\.((sa|sc|le|c)ss|(styl|stylus))$/,
         use: [
-          process.env.NODE_ENV === 'development' ? 'style-loader' : 
+          modeDev ? 'style-loader' : 
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: process.env.NODE_ENV === 'development'
+              hmr: modeDev
             }
           },
           'css-loader',
@@ -65,6 +67,22 @@ const devWebPackConfig = {
           'sass-loader',
           'stylus-loader'
         ]
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          name: 'fonts/[name].[hash:7].[ext]'
+        }
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 8192,
+          name: 'images/[name].[hash:7].[ext]'
+        }
       }
     ]
   },
@@ -72,7 +90,7 @@ const devWebPackConfig = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       title: 'index',
-      template: './index.html'
+      template: resolve('examples/index.html')
     }), // 构建index.html
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
