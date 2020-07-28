@@ -1,5 +1,13 @@
 .history/
 /node_modules
 
-dist/
-lib/
+/dist
+/lib
+/src
+/examples
+/docs
+
+webpack.config.js
+package.json
+package-lock.json
+postcss.config.js
