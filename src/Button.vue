@@ -1,16 +1,17 @@
 <template>
-  
+  <div class="button">click me</div>
 </template>
 
 <script>
 export default {
-
+  name: 'button'
 }
 </script>
 
 <style lang="stylus" scoped>
 @import './assets/fonts/iconfont.css'
-.test
-  color blue
-  transform translate(50%,50%)
+.button
+  padding 10px
+  border 1px solid #ccc
+  font-size 12px
 </style>
