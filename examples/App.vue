@@ -1,5 +1,5 @@
 <template>
-  <div @click="test" class="test">click222</div>
+  <MyButton />
 </template>
 
 <script>
