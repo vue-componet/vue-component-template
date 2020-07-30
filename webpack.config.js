@@ -46,7 +46,7 @@ const devWebPackConfig = {
       {
         test: /\.((sa|sc|le|c)ss|(styl|stylus))$/,
         use: [
-          modeDev ? 'style-loader' : 
+          modeDev || process.env.LIB ? 'style-loader' :
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
