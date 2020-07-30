@@ -5,7 +5,7 @@ module.exports = {
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }], // 增加一个自定义的 favicon(网页标签的图标)
   ],
-  base: '/', // 这是部署到服务器的相关配置
+  base: '/vue-component-template/', // 这是部署到服务器的相关配置
   markdown: {
     lineNumbers: true // 代码块显示行号
   },
