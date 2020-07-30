@@ -1,5 +1,14 @@
-import Button from './Button.vue'
-Button.intall = function (vue) {
-  vue.component(Button.name, Button)
+import ElButton from './button'
+
+const install = function(Vue) {
+  Vue.component(ElButton.name, ElButton)
 }
-export default Button
+
+/* istanbul ignore next */
+ElButton.install = install
+
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+export default ElButton;

@@ -38,11 +38,9 @@ const devWebPackConfig = {
       },
       {
         test: /\.js$/,
-        // include: resolve('src'),
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
-          // options: {config: { path: resolve('.babelrc') }}
         }
       },
       {
