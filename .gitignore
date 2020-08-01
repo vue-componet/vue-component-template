@@ -1,11 +1,11 @@
 .history/
 /node_modules
 
-/dist
-/lib
-/src
-/examples
-/docs
+dist/
+lib/
+src/
+examples/
+docs/
 
 webpack.config.js
 package.json
