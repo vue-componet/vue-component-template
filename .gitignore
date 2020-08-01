@@ -3,3 +3,9 @@
 
 dist/
 lib/
+
+webpack.config.js
+postcss.config.js
+component.config.js
+.babelrc
+LICENSE
