@@ -22,8 +22,10 @@
     "copy-webpack-plugin": "^6.0.3",
     "cross-env": "^7.0.2",
     "css-loader": "^3.6.0",
+    "element-ui": "^2.13.2",
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "highlight.js": "^10.1.2",
     "html-webpack-plugin": "^4.3.0",
     "ip": "^1.1.5",
     "less": "^3.12.2",
@@ -39,6 +41,7 @@
     "stylus-loader": "^3.0.2",
     "url-loader": "^4.1.0",
     "vue": "^2.6.11",
+    "vue-highlight.js": "^2.2.0",
     "vue-loader": "^15.9.3",
     "vue-template-compiler": "^2.6.11",
     "vuepress": "^1.5.2",
@@ -46,5 +49,6 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpackbar": "^4.0.0"
-  }
+  },
+  "dependencies": {}
 }

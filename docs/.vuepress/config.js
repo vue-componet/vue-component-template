@@ -14,18 +14,19 @@ module.exports = {
     // displayAllHeaders: true,
     lastUpdated: 'Last Updated', // 文档更新时间：每个文件git最后提交的时间
     nav: [
-      { text: '指南', link: '/guide/' }, // 内部链接
+      {
+        text: '使用文档',
+        link: '/guide/'
+      }, // 内部链接
     ],
     sidebar: {
       '/guide/': [
         {
-          title: '指南',
+          title: '使用文档',
           collapsable: false,
           children: [
             '',
-            'getting-started',
-            'directory-structure',
-            'basic-config'
+            'write-documentation',
           ]
         },
       ],
