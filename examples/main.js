@@ -6,7 +6,7 @@ import MyButton from '@/index'
 
 Vue.use(MyButton)
 
-// Vue.component(Button.name, Button)
+// Vue.component(MyButton.name, MyButton)
 
 new Vue({
 	render: h => h(App)

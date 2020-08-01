@@ -47,15 +47,41 @@ export default {
   </highlight-code>
 </baseComponent-codeBox>
 ```
+or
+
+``` md
+<baseComponent-codeBox title="这是title" description="这是描述">
+  <demo-MyButton></demo-MyButton> // 这里需要把你的路径用-的形式把demo文件夹名称拼接上
+  <highlight-code slot="codeText" lang="vue">
+    <!-- 这里包裹你的示例代码 S -->
+    <template>
+      <div>
+        <m-button />
+      </div>
+    </template>
+
+    <script>
+    export default {
+      name: 'MyButton'
+    }
+    </script>
+
+    <style lang="stylus" scoped>
+    .button
+      padding 10px
+      border 1px solid #ccc
+      font-size 12px
+    </style>
+    <!-- 这里包裹你的示例代码 E -->
+  </highlight-code>
+</baseComponent-codeBox>
+```
+
 
 ## 效果如下
 <baseComponent-codeBox title="这是title" description="这是描述">
-  <demo-MyButton-MyButton></demo-MyButton-MyButton>
+  <demo-MyButton></demo-MyButton>
   <highlight-code slot="codeText" lang="vue">
-<<< @/docs/.vuepress/components/demo/MyButton/MyButton.vue
+<<<@/docs/.vuepress/components/demo/MyButton.vue
   </highlight-code>
 </baseComponent-codeBox>
-
-<!-- 和vue一样，也可以设置样式，并且这里style样式只对当前md有效，不需要加上scoped -->
-<style>
-</style>

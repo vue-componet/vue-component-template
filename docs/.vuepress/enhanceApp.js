@@ -7,6 +7,8 @@ import VueHighlightJS from 'vue-highlight.js';
 //注意： 代码块的背景色 还是由官方设置的 $codeBgColor 决定的
 import 'highlight.js/styles/atom-one-light.css';
 
+import mButton from '../../src'
+
 export default ({
   Vue, // VuePress 正在使用的 Vue 构造函数
   options, // 附加到根实例的一些选项
@@ -15,4 +17,5 @@ export default ({
 }) => {
   // ...做一些其他的应用级别的优化
   Vue.use(VueHighlightJS) // vue代码高亮组件
+  Vue.use(mButton)
 }
