@@ -1,7 +1,6 @@
 <template>
   <div>
-    <!-- <div class="button">click me</div> -->
-    <el-button />
+    <div class="button">click me</div>
   </div>
 </template>
 
