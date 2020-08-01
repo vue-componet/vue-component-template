@@ -25,7 +25,8 @@ module.exports = {
             '',
             'getting-started',
             'directory-structure',
-            'basic-config'
+            'basic-config',
+            'write-documentation',
           ]
         },
       ],
