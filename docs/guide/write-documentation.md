@@ -4,17 +4,17 @@
 一个好的组件，优秀的文档说明必不可少。
 
 ## 在`vuepress`中引入你的组件
-找到项目下 `docs/.vuepress/enhanceApp.js`, 像开发工程项目一样引入你的组件;
-这里以引入elementUI 为例, 加入下面的代码
+找到项目下 `docs/.vuepress/enhanceApp.js`, 像开发工程项目一样引入你在 `src` 目录的组件入口;
+这里以引入m-button 为例, 加入下面的代码
 ``` javascript
 ...
-import ElementUI from 'element-ui'
+import MButton from '../../src'
 
 export default ({
     ...
 }) => {
   // ...做一些其他的应用级别的优化
-  Vue.use(ElementUI)
+  Vue.use(MButton)
 }
 ```
 
@@ -24,7 +24,7 @@ export default ({
 ``` vue
 <template>
   <div>
-    <el-button />
+    <m-button />
   </div>
 </template>
 
@@ -55,7 +55,3 @@ export default {
 <<< @/docs/.vuepress/components/demo/MyButton/MyButton.vue
   </highlight-code>
 </baseComponent-codeBox>
-
-<!-- 和vue一样，也可以设置样式，并且这里style样式只对当前md有效，不需要加上scoped -->
-<style>
-</style>
