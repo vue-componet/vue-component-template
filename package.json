@@ -1,5 +1,5 @@
 {
-  "name": "vue-component",
+  "name": "{{name}}",
   "version": "1.0.0",
   "description": "",
   "private": true,
@@ -11,7 +11,7 @@
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
-  "author": "周东杰 <384168902@qq.com>",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.10.5",
